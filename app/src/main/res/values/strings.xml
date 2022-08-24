@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Mobiele Videochat Applicatie</string>
+    <string name="voornaam">Voornaam</string>
+    <string name="achternaam">Achternaam</string>
+    <string name="stop_gesprek">Stop gesprek</string>
+    <string name="eigen_camera">Eigen camera</string>
+    <string name="partner_camera">Partner camera</string>
+    <string name="spraak_btn">Spraakherkenning</string>
+</resources>
