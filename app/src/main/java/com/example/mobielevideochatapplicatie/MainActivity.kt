@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), ContactAdapter.ClickListener {
         speechButton = findViewById(R.id.speech_btn)
 
         // Wanneer een gebruiker de knop "spraakherkenning" indrukt opent de Google Spraakherkenner
-        // De Taal van het systeem wordt gebruikt als herkenningstaal voor de spraakherkenner
+        // De taal van het systeem wordt gebruikt als herkenningstaal voor de spraakherkenner
         speechButton.setOnClickListener{
             val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             sttIntent.putExtra(
@@ -86,12 +86,12 @@ class MainActivity : AppCompatActivity(), ContactAdapter.ClickListener {
             sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, Locale.getDefault())
             sttIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Met wie wil u een gesprek starten?")
 
-            // Controleert of het systeemspraakherkenning ondersteunt
+            // Handelt error af indien spraakherkenning niet beschikbaar is
             try{
                 startActivityForResult(sttIntent, REQUEST_CODE_STT)
             } catch (e: ActivityNotFoundException) {
                 e.printStackTrace()
-                Toast.makeText(this, "Dit toestel ondersteunt spraakherkenning niet.", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Dit toestel ondersteund spraakherkenning niet.", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity(), ContactAdapter.ClickListener {
         }
     }
 
-    // Wanneer de applicatie geen prioriteit meer geeft op het toestel stopt de spraakherkenner
+    // Wanneer de applicatie geen prioriteit meer heeft op het toestel stopt de spraakherkenner
     override fun onPause() {
         textToSpeechEngine.stop()
         super.onPause()
